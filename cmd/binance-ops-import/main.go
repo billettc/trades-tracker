@@ -9,19 +9,19 @@ import (
 	"os"
 
 	"github.com/billettc/trades-tracker/db"
-	"github.com/billettc/trades-tracker/price"
-
 	"github.com/billettc/trades-tracker/models"
+	"github.com/billettc/trades-tracker/price"
 )
 
 func main() {
-	f, err := os.Open("/Users/cbillett/devel/perso/go/trades-tracker/cmd/binance-ops-import/binance-operations-2018.csv")
+	//f, err := os.Open("/Users/cbillett/devel/perso/go/trades-tracker/cmd/binance-ops-import/binance-operations-2018.csv")
+	f, err := os.Open("/Users/cbillett/Downloads/binance-2021-operations.csv")
 	check(err)
 
 	database, err := db.NewMongoDB("mongodb://localhost:27017")
 	check(err)
 
-	priceGetter := price.NewPriceGetter(API_KEY, SECRET_KEY, database)
+	priceGetter := price.NewPriceGetter(price.API_KEY, price.SECRET_KEY, database)
 
 	accountState := &AccountState{
 		priceGetter: priceGetter,

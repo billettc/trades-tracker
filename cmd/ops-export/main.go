@@ -29,6 +29,11 @@ func main() {
 			//continue
 		case "Deposit":
 			//continue
+		case "Transaction Related":
+		case "Large OTC trading":
+		case "Funding Fee":
+		case "Realize profit and loss":
+		case "NFT transaction":
 		case "Small assets exchange BNB":
 			continue
 		default:
